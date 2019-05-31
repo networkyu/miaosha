@@ -51,4 +51,12 @@ public class ItemController extends BaseController{
         BeanUtils.copyProperties(itemModel,itemVO);
         return itemVO;
     }
+    // 商品详情页浏览
+    @RequestMapping(value = "/get",method = {RequestMethod.GET})
+    @ResponseBody
+    public CommonReturnType getItem(@RequestParam(name = "id") Integer id){
+        ItemModel itemModel = itemService.getItemById(id);
+        ItemVO itemVO = convertVOFromModel(itemModel);
+        return CommonReturnType.create(itemVO);
+    }
 }
