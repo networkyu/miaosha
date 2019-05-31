@@ -9,7 +9,8 @@ public interface ItemStockDOMapper {
     int insertSelective(ItemStockDO record);
 
     ItemStockDO selectByPrimaryKey(Integer id);
-
+    // 通过itemId查询库存数量
+    ItemStockDO selectByItemId(Integer itemId);
     int updateByPrimaryKeySelective(ItemStockDO record);
 
     int updateByPrimaryKey(ItemStockDO record);

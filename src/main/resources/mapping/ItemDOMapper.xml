@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.debug.mooc.dubbo.two.ItemDOMapper" >
-  <resultMap id="BaseResultMap" type="com.debug.mooc.dubbo.two.ItemDO" >
+<mapper namespace="com.miaoshaproject.dao.ItemDOMapper" >
+  <resultMap id="BaseResultMap" type="com.miaoshaproject.dataobject.ItemDO" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="DECIMAL" />
@@ -22,7 +22,7 @@
     delete from item
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.debug.mooc.dubbo.two.ItemDO" useGeneratedKeys="true" keyProperty="id" >
+  <insert id="insert" parameterType="com.miaoshaproject.dataobject.ItemDO" useGeneratedKeys="true" keyProperty="id" >
     insert into item (id, title, price, 
       img_url, description, sales
       )
@@ -30,7 +30,7 @@
       #{imgUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{sales,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.debug.mooc.dubbo.two.ItemDO" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.ItemDO" useGeneratedKeys="true" keyProperty="id">
     insert into item
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.debug.mooc.dubbo.two.ItemDO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.miaoshaproject.dataobject.ItemDO" >
     update item
     <set >
       <if test="title != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.debug.mooc.dubbo.two.ItemDO" >
+  <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.ItemDO" >
     update item
     set title = #{title,jdbcType=VARCHAR},
       price = #{price,jdbcType=DECIMAL},
