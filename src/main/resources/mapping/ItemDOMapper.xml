@@ -18,6 +18,12 @@
     from item
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--查询列表sql语句-->
+  <select id="listItem" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from item order by sales DESC;
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from item
     where id = #{id,jdbcType=INTEGER}
@@ -101,6 +107,11 @@
       img_url = #{imgUrl,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       sales = #{sales,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="increaseSales" parameterType="java.lang.Integer" >
+    update item
+    set sales = sales + #{amount,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
