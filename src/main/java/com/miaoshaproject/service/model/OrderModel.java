@@ -22,10 +22,13 @@ public class OrderModel {
     // 购买数量
     private Integer amount;
 
-    // 购买金额
+    // 购买金额  // 若非空，则表示以秒杀商品方式下单
     private BigDecimal orderPrice;
 
-    // 购买商品的单价-当时购买的价格
+    // 购买商品的单价-当时购买的价格  // 若非空，则表示以秒杀商品方式下单
     private BigDecimal itemPrice;
+
+    // 若非空，则表示以秒杀商品方式下单
+    private Integer promoId;
 
 }
